@@ -1,0 +1,173 @@
+/* CSS written by John Siggers */
+
+/* GlOBAL STYLES (MOBILE FIRST) */
+body {
+    display:grid;
+    grid-template-columns: 1fr;
+    background-color: white;
+    border: 0;
+    margin: 0;
+}
+
+h1 {
+   font-family: "Didot", "Bodoni MT", "Cinzel", "Times New Roman", serif;
+   color: navy;
+}
+
+h2{
+   text-align: center;
+}
+
+nav{
+   display: flex;
+}
+@media screen and (min-width: 325px) and (max-width: 450px) {
+    body {
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        background-color:blue;
+        grid-template-columns: auto auto auto;
+        gap: .1rem;
+        min-width: 450px;
+    }
+    header, nav, main, footer {
+  grid-column: 1/1;
+    }
+nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  width: 100%;
+}
+
+
+
+}
+
+    header {
+   background-color: skyblue;
+
+
+
+
+
+
+
+
+
+
+}
+
+@media screen and (min-width: 451px) {
+    body {
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        background-color: purple;
+    
+    
+    
+    }
+}
+
+header, nav, main, footer {
+  grid-column: 1/3;
+}
+
+header {
+   background-color: skyblue;
+}
+
+
+#Explore h2 {
+   color: sienna;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  width: 100%;
+}
+
+nav a {
+  text-decoration: none;
+  background-color: sienna;
+  padding: .7rem 1.1rem;
+  margin: .9rem;
+  gap: .4;
+  color: white;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+nav a:hover {
+  background-color: white;
+  color: darkslategray;
+}
+
+main {
+   
+}
+
+footer {
+   background-color: darkslategray;
+   color: white;
+}
+
+img {
+   width: 100%;
+}
+
+.card-row{
+  display: flex;
+  gap: .7rem;
+  flex-wrap: wrap;
+  background-color: darkslategray;
+  color: sienna;
+  padding: 1rem;
+}
+
+.card-row > section {
+  flex:1 1 100px;
+  background-color: wheat;
+  margin: .5rem;
+  padding: .5rem;
+}
+
+.card-row2{
+  display: flex;
+  gap: .7rem;
+  flex-wrap: wrap;
+  background-color: darkslategray;
+  color: sienna;
+  padding: 1rem;
+}
+
+.card-row2 > section {
+  flex:1 1 100px;
+  background-color: wheat;
+  margin: .5rem;
+  padding: .5rem;
+}
+
+.card-row3{
+  display: flex;
+  gap: .7rem;
+  flex-wrap: wrap;
+  background-color: silver;
+  color: sienna;
+  padding: .3rem;
+}
+
+.card-row3 > section {
+  flex:1 1 25px;
+  background-color: wheat;
+  margin: .3rem;
+  padding: .2rem;
+  color: darkslategray;
+}
+
+ol {
+   text-decoration: none;
+   list-style-type: none; 
+}
