@@ -34,8 +34,17 @@ footer {
    color: navy;
 }
 
+main p{
+   text-align: center;
+   color: white;
+   font-size: 1rem;
+   padding: .2rem;
+   font-family: "Didot", "Bodoni MT", "Cinzel", "Times New Roman", serif;
+}
+
+
 /* Cell-phone compatibility */
-@media screen and (min-width: 325px) and (max-width: 450px) {
+@media (min-width: 300px) {
     body {
          display:grid;
          grid-template-columns: 1fr;
@@ -89,31 +98,64 @@ footer {
 
 }
 
-.img-card-row{
-  display: flex;
-  gap: .7rem;
-  flex-wrap: wrap;
-  background-color: white;
-  color: darkgreen;
-  padding: 1rem;
+    .img-card-row{
+        display: flex;
+        gap: .7rem;
+        flex-wrap: wrap;
+        background-color: white;
+        color: darkgreen;
+        padding: 1rem;
 }
 
-.slide-fig {
-    border: px solid darkblue;
-    background: linear-gradient(86deg,white, skyblue, darkblue);
-    border-radius: 17px;
+    .slide-fig {
+        border: px solid darkblue;
+        background: linear-gradient(86deg,white, skyblue, darkblue);
+        border-radius: 17px;
+}
+   
+    .review-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1px;
+        border-radius: 10px;
+        border: 2px solid white;
+        width: 60%;
+        margin: 0 auto 3rem;
 }
 
+    .review-img {
+        display:block;
+        aspect-ratio: 1/1;
+        border-radius: 10px;
+        margin: 0;
+        object-fit: cover;
+
 }
 
+    #package {
+        text-align: center;
+        color: white;
+        font-size: 1rem;
+        background-color: darkgreen;
+    }
 
+    #military h2 {
+        text-align: center;
+        color: white;
+        font-size: 1rem;
+        background-color: red;
+        margin-bottom: 0;
+}
 
+    #military p{
+        margin-bottom: 0;
+        margin-top: 0;
+        text-align: center;
+    }
 
-
-
-
-
-@media screen and (min-width: 451px) {
+@media (min-width: 770px) {
     body {
         display:grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -194,3 +236,4 @@ img {
   color: darkslategray;
 }
 
+}
