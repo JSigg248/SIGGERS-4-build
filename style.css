@@ -44,17 +44,15 @@ main p{
 
 
 /* Cell-phone compatibility */
-@media (min-width: 300px) {
+@media screen and (min-width: 325px) {
     body {
          display:grid;
          grid-template-columns: 1fr;
          background-color:navy;
          gap: .1rem;
-         min-width: 325px;
+
     }
-    header, nav, main, footer {
-         grid-column: 1rem;
-    }
+   
     nav ul {
          display: flex;
          margin: 1rem auto;
@@ -95,7 +93,6 @@ main p{
 
     header {
          background-color: skyblue;
-
 }
 
     .img-card-row{
@@ -108,7 +105,7 @@ main p{
 }
 
     .slide-fig {
-        border: px solid darkblue;
+        border: 1px solid darkblue;
         background: linear-gradient(86deg,white, skyblue, darkblue);
         border-radius: 17px;
 }
@@ -123,16 +120,19 @@ main p{
         border: 2px solid white;
         width: 60%;
         margin: 0 auto 3rem;
+        background-color: white;
 }
-
-    .review-img {
-        display:block;
-        aspect-ratio: 1/1;
+    .review-container img {
         border-radius: 10px;
-        margin: 0;
-        object-fit: cover;
-
+}    
+    .review p {
+       color: navy;
 }
+    .notam {
+        font-size: 1rem;
+        color: firebrick;
+    }
+
 
     #package {
         text-align: center;
@@ -154,86 +154,142 @@ main p{
         margin-top: 0;
         text-align: center;
     }
+}    
 
-@media (min-width: 770px) {
+@media screen and (min-width: 768px) {
     body {
-        display:grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        background-color: purple;
-    
-    
-    
+        display: grid;
+        /* Left column for nav (220px), right column fills remaining space for main */
+        grid-template-columns: 220px 1fr;
+        /* Explicit rows so header, hero image, middle section, and footer stack cleanly */
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header header"
+            "hero   hero"
+            "nav    main"
+            "footer footer";
+        gap: 1rem;
+    }
+
+    /* Full-width top header */
+    header {
+        grid-area: header;
+        width: 100%;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+
+    /* Full-width stretching main image (update selector if your HTML uses a different class/ID) */
+    .main-image,
+    #hero-img,
+    body > img {
+        grid-area: hero;
+        width: 100%;
+        height: auto;
+        max-height: 450px;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* Left-hand vertical sidebar navigation */
+    nav {
+        grid-area: nav;
+        align-self: start;
+        justify-content: flex-start;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+
+    nav ul {
+        width: 100%;
+        margin: 0;
+        align-items: stretch;
+    }
+
+    nav a {
+        width: 100%;
+        margin: 0;
+        padding: 0.75rem 1rem;
+        box-sizing: border-box;
+        border-radius: 6px;
+    }
+
+    /* Main content area sitting next to nav */
+    main {
+        grid-area: main;
+        padding: 0 1rem 1rem 0;
+    }
+
+    /* Modern 2-column grid for cards inside main on tablet */
+    .img-card-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        border-radius: 10px;
+    }
+
+    .review-container {
+        width: 85%;
+    }
+
+    /* Full-width bottom footer */
+    footer {
+        grid-area: footer;
+        width: 100%;
+        padding: 1rem;
+        box-sizing: border-box;
     }
 }
 
-header, nav, main, footer {
-  grid-column: 1/3;
+
+/* Tablet and desktop compatibility 
+@media screen and (min-width: 768px) {
+    body {
+        grid-template-columns: 220px 1fr;
+        gap: .5rem;
+        background-color: purple;
+        
+    }
+
+    main {
+        grid-column: 2/3;
+        padding: 1rem;
+    }
+
+     header,footer {
+         grid-column: 1/2;
+    }
+
+    nav {
+        grid-column: 1/2;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding:1rem;
+        background-color: pink;
+    }
+
+    nav ul {
+         margin: 1rem auto;
+         padding: 0;
+         flex-direction: column;
+         justify-content: space-around;
+         list-style: none;
+         gap: .5rem;
+         align-items: center;
 }
 
-header {
-   background-color: skyblue;
-}
+    nav a {
+         box-sizing: border-box;
+         width: 100%;
 
 
-#Explore h2 {
-   color: sienna;
-}
-
-main {
-   
-}
-
-img {
-   width: 100%;
-}
-
-.card-row{
-  display: flex;
-  gap: .7rem;
-  flex-wrap: wrap;
-  background-color: darkslategray;
-  color: sienna;
-  padding: 1rem;
-}
-
-.card-row > section {
-  flex:1 1 100px;
-  background-color: wheat;
-  margin: .5rem;
-  padding: .5rem;
-}
-
-.card-row2{
-  display: flex;
-  gap: .7rem;
-  flex-wrap: wrap;
-  background-color: darkslategray;
-  color: sienna;
-  padding: 1rem;
-}
-
-.card-row2 > section {
-  flex:1 1 100px;
-  background-color: wheat;
-  margin: .5rem;
-  padding: .5rem;
-}
-
-.card-row3{
-  display: flex;
-  gap: .7rem;
-  flex-wrap: wrap;
-  background-color: silver;
-  color: sienna;
-  padding: .3rem;
-}
-
-.card-row3 > section {
-  flex:1 1 25px;
-  background-color: wheat;
-  margin: .3rem;
-  padding: .2rem;
-  color: darkslategray;
-}
+}    
 
 }
+*/
+
+
+
+
+
+
