@@ -9,6 +9,14 @@ body {
     margin: 0;
 }
 
+header {
+    background-color: skyblue;
+}
+
+header img, #military img {
+    width: 100%;
+}
+
 h1 {
    font-family: "Didot", "Bodoni MT", "Cinzel", "Times New Roman", serif;
    color: navy;
@@ -19,19 +27,58 @@ h2{
    color: white;
 }
 
-nav{
-   display: flex;
-   width: 100%;
-   justify-content: center;
-   margin: 0 auto;
-   padding: 0;
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
-footer {
-   text-align: center;
-   font-size: 1rem;
-   background-color: skyblue;
-   color: navy;
+nav {
+    display: flex;
+    background-color: midnightblue;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+nav ul {
+    display: flex;
+    margin-top: 15px;
+    padding: 0;
+    flex-direction: column;
+    justify-content: space-around;
+    list-style: none;
+    gap: .5rem;
+    align-items: center;
+    position: sticky;
+    align-items: stretch;
+    box-sizing: border-box;
+}
+
+nav a {
+    display: block;
+    text-decoration: none;
+    background-color: darkgray;
+    color: white;
+    font-size: 1em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: .5rem .5rem;
+    margin: .5rem auto;
+}
+
+nav a:hover {
+    background-color: lightskyblue;
+    color:darkgreen
+}
+
+main {
+    background-color: midnightblue;
+    border-top: 25px;
 }
 
 main p{
@@ -42,132 +89,236 @@ main p{
    font-family: "Didot", "Bodoni MT", "Cinzel", "Times New Roman", serif;
 }
 
-
-/* Cell-phone compatibility */
-@media screen and (min-width: 325px) {
-    body {
-         display:grid;
-         grid-template-columns: 1fr;
-         background-color:navy;
-         gap: .1rem;
-
-    }
-   
-    nav ul {
-         display: flex;
-         margin: 1rem auto;
-         padding: 0;
-         flex-direction: column;
-         justify-content: space-around;
-         list-style: none;
-         gap: .5rem;
-         align-items: center;
+.img-card-row{
+    display: flex;
+    gap: .7rem;
+    flex-wrap: wrap;
+    background-color: white;
+    color: darkgreen;
+    padding: 1rem;
 }
 
-    nav a {
-         display: block;
-         text-decoration: none;
-         background-color: darkgray;
-         color: white;
-         font-size: 1em;
-         text-transform: uppercase;
-         text-align: center;
-         padding: .5rem .5rem;
-         margin: .5rem auto;
+.slide-fig {
+    box-shadow: 1px 3px 15px gray;
+    background: linear-gradient(86deg,white, skyblue, blue);
+    border-radius: 15px;
+    width: 95%;
 }
 
-    nav a:visited {
-         background-color: lightgray;
-         color: forestgreen;
+.slide-fig img {
+    display: block;
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+    transition: box-shadow 0.3s ease-in, transform 0.3s ease-out;
 }
 
-    nav a:hover {
-         background-color: skyblue;
-         color: darkgreen;
+.slide-fig img:hover {
+    box-shadow: 1px 10px 15px skyblue;
+    transform: translateY(-1px);
 }
 
-    nav a:active {
-         background-color: navy;
-         color: white;
-}
-
-    header {
-         background-color: skyblue;
-}
-
-    .img-card-row{
-        display: flex;
-        gap: .7rem;
-        flex-wrap: wrap;
-        background-color: white;
-        color: darkgreen;
-        padding: 1rem;
-}
-
-    .slide-fig {
-        border: 1px solid darkblue;
-        background: linear-gradient(86deg,white, skyblue, darkblue);
-        border-radius: 17px;
+figcaption {
+    padding: 5px;
 }
    
-    .review-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1px;
-        border-radius: 10px;
-        border: 2px solid white;
-        width: 60%;
-        margin: 0 auto 3rem;
-        background-color: white;
+.review-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1px;
+    border-radius: 15px;
+    border: 2px solid white;
+    width: 55%;
+    margin: 0 auto 3rem;
+    background-color: white;
+
 }
-    .review-container img {
-        border-radius: 10px;
+.review-container img {
+    border-radius: 10px;
 }    
-    .review p {
-       color: navy;
+.review p {
+    color: navy;
 }
-    .notam {
-        font-size: 1rem;
-        color: firebrick;
-    }
-
-
-    #package {
-        text-align: center;
-        color: white;
-        font-size: 1rem;
-        background-color: darkgreen;
-    }
-
-    #military h2 {
-        text-align: center;
-        color: white;
-        font-size: 1rem;
-        background-color: red;
-        margin-bottom: 0;
+.notam {
+    font-size: 1rem;
+    color: firebrick;
 }
 
-    #military p{
-        margin-bottom: 0;
-        margin-top: 0;
-        text-align: center;
-    }
-}    
+footer {
+   text-align: center;
+   font-size: 1rem;
+   background-color: skyblue;
+   color: navy;
+}
 
+#package {
+    text-align: center;
+    color: white;
+    font-size: 1rem;
+    background-color: darkgreen;
+}
+
+#military h2 {
+    text-align: center;
+    color: white;
+    font-size: 1rem;
+    background-color: red;
+    margin-bottom: 0;
+}
+
+#military p{
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: center;
+}
+
+footer {
+   text-align: center;
+   font-size: 1rem;
+   background-color: skyblue;
+   color: navy;
+}
+
+/* Tablet compatibility */
 @media screen and (min-width: 768px) {
     body {
         display: grid;
-        /* Left column for nav (220px), right column fills remaining space for main */
-        grid-template-columns: 220px 1fr;
-        /* Explicit rows so header, hero image, middle section, and footer stack cleanly */
-        grid-template-rows: auto auto 1fr auto;
+        grid-template-columns: 175px 1fr;
+        grid-template-rows: auto;
         grid-template-areas:
             "header header"
-            "hero   hero"
-            "nav    main"
+            "nav    picks"
+            "nav    story"
+            "nav    package"
+            "nav    mil"
             "footer footer";
+        gap: 1rem;
+    }
+
+    header {
+        grid-area: header;
+        display: grid;
+        grid-template-columns: minmax(175px, auto) 1fr;
+        grid-template-rows: auto auto;
+        text-align: left;
+        box-sizing: border-box;
+    }
+
+    header h1 {
+        grid-column: 1;
+        grid-row: 1;
+        padding: .5rem;
+        text-align: center;
+        font-size: clamp (2rem, 3vw, 1rem);
+        margin: 0;
+        align-self: end;
+    }
+
+    header p {
+            grid-column: 1;
+            grid-row: 2;
+            padding: .75rem;
+            text-align: center;
+            align-self: start;
+            margin: 0;
+}
+
+    header img {
+        grid-column: 2;
+        grid-row: 1/3;
+        margin: 0;
+        padding: 0.75 rem;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        box-sizing: border-box;
+        min-width: none;
+
+    }
+
+    nav {
+        display:block;
+        grid-area: nav;
+        width: 100%;
+        min-width: none;
+        padding: 1rem;
+        box-sizing: border-box;
+        align-self: stretch;
+}
+
+    nav ul {
+         display: flex;
+         margin: .5rem;
+         margin-top: 0;
+         padding: .2rem;
+         flex-direction: column;
+         align-items: stretch;
+         position: sticky;
+         top: 1.5rem;
+         width: 100%;
+         gap: .5rem;
+         box-sizing: border-box;
+         justify-content: space-around;
+         height: 40vh;
+}
+
+    nav li {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    
+}
+    nav a {
+         display: block;
+         background-color: white;
+         color: darkgray;
+         font-size: .8em;
+         padding: .5rem .5rem;
+         margin: .5rem auto;
+         width: 100%;
+         text-align: right;
+         
+}
+
+/* Allows me to split my sections and target everything*/
+    main {
+        display: contents;
+    }
+
+    #picks {
+        grid-area: picks;
+        background-color: navy;
+        min-width: 0;
+}
+
+    #stories {
+        grid-area: story;
+        min-width: 0;
+}
+
+    #military {
+        grid-area: mil;
+        min-width: 0;
+    }
+
+    footer {
+        grid-area: footer;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+
+    #package {
+        grid-area: package;
+}
+
+}    
+
+@media screen and (min-width: 1024px) {
+    body {
+       
         gap: 1rem;
     }
 
@@ -196,8 +347,11 @@ main p{
         grid-area: nav;
         align-self: start;
         justify-content: flex-start;
-        padding: 1rem;
+        padding: 1rem 2rem;
         box-sizing: border-box;
+        border-bottom: 20px solid white;
+        min-width: none;
+        width: 100%;
     }
 
     nav ul {
