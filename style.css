@@ -187,7 +187,7 @@ footer {
     body {
         display: grid;
         grid-template-columns: 175px 1fr;
-        grid-template-rows: auto;
+        grid-template-rows: auto 1fr;
         grid-template-areas:
             "header header"
             "nav    picks"
@@ -202,10 +202,11 @@ footer {
         grid-area: header;
         display: grid;
         grid-template-columns: minmax(175px, auto) 1fr;
-        grid-template-rows: auto auto;
+        grid-template-rows: auto 1fr;
         text-align: left;
         box-sizing: border-box;
         background-color: transparent;
+        width: 100%
     }
 
     header h1 {
@@ -219,13 +220,16 @@ footer {
     }
 
     header p {
+            display: flex;
             grid-column: 1;
             grid-row: 2;
             padding: .75rem;
             text-align: center;
             margin: 0;
             background-color: skyblue;
-}
+            align-items: flex-start;
+            justify-content: center;
+    }
 
     header img {
         grid-column: 2;
@@ -248,23 +252,23 @@ footer {
         padding: 1rem;
         box-sizing: border-box;
         align-self: stretch;
-}
+    }
 
     nav ul {
          position: sticky;
          display: flex;
          margin: .5rem;
-         margin: 0;
+         margin: 0 2.5em;
          padding: .2rem;
          flex-direction: column;
          align-items: stretch;
-         top: 1.5rem;
-         width: 100%;
+         top: 0;
+         width: 75%;
          gap: .5rem;
          box-sizing: border-box;
          justify-content: space-around;
          height: 40vh;
-}
+    }
 
     nav li {
         width: 100%;
@@ -272,11 +276,11 @@ footer {
         margin: 0;
         box-sizing: border-box;
     
-}
+    }
     nav a {
          display: block;
-         background-color: white;
-         color: darkgray;
+         background-color: darkgray;
+         color: white;
          font-size: .8em;
          padding: .5rem .5rem;
          margin: 0;
@@ -284,7 +288,7 @@ footer {
          text-align: right;
          box-sizing: border-box;
          
-}
+    }
 
 /* Allows me to split my sections and target everything*/
     main {
@@ -296,16 +300,37 @@ footer {
         background-color: navy;
         min-width: 0;
         margin-top: 5px;
-}
+    }
 
     #stories {
         grid-area: story;
         min-width: 0;
-}
+    }
+    #package {
+        grid-area: package;
+    }
 
     #military {
         grid-area: mil;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: green;
         min-width: 0;
+    }
+
+    #military h2 {
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+
+    }
+
+    #military p {
+        grid-area: mil-p;
+        margin-bottom: 0;
+        margin-top: 0;
+        text-align: center;
     }
 
     footer {
@@ -314,144 +339,187 @@ footer {
         box-sizing: border-box;
     }
     
-    #package {
-        grid-area: package;
-}
-
-
-    #military p{
-    margin-bottom: 0;
-    margin-top: 0;
-    text-align: center;
-}
-
 }    
+
+/*----------------------------------------------------------------------------
+                           FULL SCREEN MODE
+----------------------------------------------------------------------------*/
 
 @media screen and (min-width: 1024px) {
     body {
-       
-        gap: 1rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "footer";
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        width: 100%;
     }
 
-    /* Full-width top header */
     header {
         grid-area: header;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    header h1 {
+        grid-column: 1;
+        grid-row: 1;
         width: 100%;
         padding: 1rem;
+        margin: 0;
+        text-align: center;
+        background-color: skyblue;
         box-sizing: border-box;
     }
 
-    /* Full-width stretching main image (update selector if your HTML uses a different class/ID) */
-    .main-image,
-    #hero-img,
-    body > img {
-        grid-area: hero;
+    header p {
+        grid-column: 1;
+        grid-row: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 0.75rem 1rem;
+        margin: 0;
+        text-align: center;
+        background-color: skyblue;
+        box-sizing: border-box;
+    }
+
+    header img {
+        grid-column: 1;
+        grid-row: 3;
+        display: block;
         width: 100%;
         height: auto;
-        max-height: 450px;
+        object-position: center;
         object-fit: cover;
-        display: block;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        aspect-ratio: 4/1;
     }
 
-    /* Left-hand vertical sidebar navigation */
     nav {
         grid-area: nav;
-        align-self: start;
-        justify-content: flex-start;
-        padding: 1rem 2rem;
-        box-sizing: border-box;
-        border-bottom: 20px solid white;
-        min-width: none;
+        display: block;
         width: 100%;
+        position: sticky;
+        top: 0;
+        height: auto;
+        z-index: 100;
+        background-color: darkgray;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 
     nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
         width: 100%;
+        height: auto;
         margin: 0;
-        align-items: stretch;
+        padding: 0.5rem 1rem;
+        gap: 1.5rem;
+        box-sizing: border-box;
+    }
+
+    nav li {
+        width: auto;
+        margin: 0;
+        padding: 0;
     }
 
     nav a {
-        width: 100%;
-        margin: 0;
-        padding: 0.75rem 1rem;
-        box-sizing: border-box;
-        border-radius: 6px;
+        display: block;
+        width: auto;
+        padding: 0.5rem 1rem;
+        color: white;
+        background-color: transparent;
+        text-align: center;
+        text-decoration: none;
+        font-size: 1rem;
     }
 
-    /* Main content area sitting next to nav */
     main {
         grid-area: main;
-        padding: 0 1rem 1rem 0;
-    }
-
-    /* Modern 2-column grid for cards inside main on tablet */
-    .img-card-row {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-        border-radius: 10px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "picks   story"
+            "package mil";
+        gap: 1.5rem;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0;
+        padding: 0 1rem;
+        box-sizing: border-box;
     }
 
-    .review-container {
-        width: 85%;
-    }
-
-    /* Full-width bottom footer */
     footer {
         grid-area: footer;
         width: 100%;
-        padding: 1rem;
         box-sizing: border-box;
     }
-}
 
-
-/* Tablet and desktop compatibility 
-@media screen and (min-width: 768px) {
-    body {
-        grid-template-columns: 220px 1fr;
-        gap: .5rem;
-        background-color: purple;
-        
-    }
-
-    main {
-        grid-column: 2/3;
-        padding: 1rem;
-    }
-
-     header,footer {
-         grid-column: 1/2;
-    }
-
-    nav {
-        grid-column: 1/2;
+    #picks {
+        display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        padding:1rem;
-        background-color: pink;
+        justify-content: center;
+        box-sizing: border-box;
+
     }
 
-    nav ul {
-         margin: 1rem auto;
-         padding: 0;
-         flex-direction: column;
-         justify-content: space-around;
-         list-style: none;
-         gap: .5rem;
-         align-items: center;
-}
+    #package {
+        box-sizing: border-box;
+        min-width: 0;
+        pad: 1rem;
+        align-self: start;
 
-    nav a {
-         box-sizing: border-box;
-         width: 100%;
-
-
-}    
+    }
 
 }
-*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
