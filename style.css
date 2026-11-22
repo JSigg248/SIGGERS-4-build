@@ -359,6 +359,7 @@ footer {
         margin: 0;
         padding: 0;
         width: 100%;
+        background-color: skyblue;
     }
 
     header {
@@ -465,9 +466,9 @@ footer {
             "package mil";
         gap: 1.5rem;
         width: 100%;
-        max-width: 1200px;
-        margin: 0;
-        padding: 0 1rem;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 1.5rem;
         box-sizing: border-box;
     }
 
